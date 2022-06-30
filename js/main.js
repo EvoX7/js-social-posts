@@ -101,6 +101,7 @@ const posts = [
 // * Output HTML
 
 const outputHtml = document.getElementById('output-post');
+
 let isLiked = false;
 
 // ? Creating a loop to generate a post
@@ -147,25 +148,24 @@ for (let i = 0; i < posts.length; i++) {
     outputHtml.append(newPost);
 }
 
+//? Selecting like buttons 
 
+const likesBtn = document.querySelectorAll('.like-button');
+let postLikes = document.querySelectorAll('.js-likes-counter');
 
-const likeBtn = document.querySelectorAll('.like-button');
-let likesCounter = document.querySelectorAll('.js-likes-counter');
-
-for (let i = 0; i < likeBtn.length; i++) {
-    likeBtn[i].addEventListener('click', function () {
-
+for (let i = 0; i < likesBtn.length; i++) {
+    likesBtn[i].addEventListener('click', function () {
 
         if (isLiked === false) {
-            likeBtn[i].classList.add('like-button--liked');
-            likesCounter[i].innerHTML = (Number(likesCounter[i].innerHTML) + 1);
+            likesBtn[i].classList.add('like-button--liked');
+            postLikes[i].innerHTML = (Number(postLikes[i].innerHTML) + 1);
 
         } else
 
             if (isLiked === true) {
-                likeBtn[i].classList.add('.removed-click');
-                likeBtn[i].classList.remove('like-button--liked');
-                likesCounter[i].innerHTML = (Number(likesCounter[i].innerHTML) - 1);
+                
+                likesBtn[i].classList.remove('like-button--liked');
+                postLikes[i].innerHTML = (Number(postLikes[i].innerHTML) - 1);
             }
     }
     );
