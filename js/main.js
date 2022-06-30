@@ -86,7 +86,7 @@ const posts = [
     {
         "id": 8,
         "content": "Ao! Che nun ce lo sai che io so l'unico post scritto in romanesco de tutta sta lista autogenerata! Dico e scrivo nummeri da quanno so nato, ce manca pure che me faccio un post autogennerato!",
-        "media": "https://unsplash.it/600/400?image=554",
+        "media": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1096&q=80",
         "author": {
             "name": "Mario Di Nio",
             "image": "null"
@@ -105,7 +105,7 @@ const outputHtml = document.getElementById('output-post');
 // ? Create a loop to generate a post
 for (let i = 0; i < posts.length; i++) {
     const visualPosts = posts[i];
-    console.log(`${visualPosts.id}`);
+    console.log(`${visualPosts.id}`); 
 
 
 
@@ -116,17 +116,17 @@ for (let i = 0; i < posts.length; i++) {
                 <div class="post__header">
                     <div class="post-meta">
                         <div class="post-meta__icon">
-                            <img class="profile-pic" src="${visualPosts.author["image"]}" alt="${visualPosts.author.name}">
+                            <img class="profile-pic" src="${visualPosts.author['image']}" alt="${visualPosts.author.name}">
                         </div>
                         <div class="post-meta__data">
-                            <div class="post-meta__author">${visualPosts.author.name}</div>
+                            <div class="post-meta__author">${visualPosts.author['name']}</div>
                             <div class="post-meta__time">${visualPosts.created}</div>
                         </div>
                     </div>
                 </div>
-                <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+                <div class="post__text">${visualPosts.content}</div>
                 <div class="post__image">
-                    <img src="${visualPosts.media}" alt="">
+                    <img src="${visualPosts.media}" alt="image">
                 </div>
                 <div class="post__footer">
                     <div class="likes js-likes">
