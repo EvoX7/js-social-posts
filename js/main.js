@@ -105,7 +105,7 @@ const outputHtml = document.getElementById('output-post');
 // ? Create a loop to generate a post
 for (let i = 0; i < posts.length; i++) {
     const visualPosts = posts[i];
-    console.log(`${visualPosts.id}`); 
+    console.log("Post id" +  `${visualPosts.id}`);
 
 
 
@@ -142,17 +142,26 @@ for (let i = 0; i < posts.length; i++) {
                     </div>
                 </div>
             </div>`;
-
-            // let autImg = `${visualPosts.author["image"]}`;
-
-            // if (autImg == null) {
-            //     autImg = document
-
-
-
-
     outputHtml.append(newPost);
 }
+
+
+const isLiked = false;
+const likeButton = document.querySelectorAll('.js-like-button');
+
+likeButton.addEventListener('click',function () {
+
+    if (isLiked === true) {
+        likeButton.classList.add('like-button--liked');
+    } else {
+        likeButton.classList.remove('like-button--liked');
+    }
+});
+
+
+
+
+
 
 
 

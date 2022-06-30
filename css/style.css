@@ -100,14 +100,6 @@ h1 {
     border-radius: 5px;
 }
 
-/* Added error loading placeholder 
-.placeholderimg {
-    background-color: #023047;
-    color: white;
-    border-radius: 50%;
-    max-width: 60px;
-} */
-
 
 .likes {
     display: flex;
