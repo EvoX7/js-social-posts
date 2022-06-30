@@ -108,18 +108,14 @@ let isLiked = false;
 for (let i = 0; i < posts.length; i++) {
     const visualPosts = posts[i];
     console.log("Post id " + `${visualPosts.id}`);
-    
 
-
-
-
-    //* Creating a new (div) element
+    // !Formatting date 
     let date = new Date();
     let dateString = date.toLocaleDateString();
     dateString = `${dateString}`;
     
 
-
+    //* Creating a new (div) element
     const newPost = document.createElement('div');
     newPost.innerHTML =
         `<div class="post">
@@ -173,7 +169,7 @@ for (let i = 0; i < likesBtn.length; i++) {
                 likesBtn[i].classList.remove('like-button--liked');
                 postLikes[i].innerHTML = (Number(postLikes[i].innerHTML) - 1);
 
-            
+
             }
     }
     );
