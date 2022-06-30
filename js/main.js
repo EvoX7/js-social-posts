@@ -2,7 +2,7 @@ const posts = [
     {
         "id": 1,
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "media": "https://unsplash.it/600/300?image=171",
+        "media": "https://i.imgflip.com/6lc49z.jpg",
         "author": {
             "name": "Phil Mangione",
             "image": "https://unsplash.it/300/300?image=15"
@@ -58,6 +58,7 @@ const posts = [
         "likes": 95,
         "is_liked": false,
         "created": "2022-03-05"
+
     },
     {
         "id": 6,
@@ -100,12 +101,13 @@ const posts = [
 // * Output HTML
 
 const outputHtml = document.getElementById('output-post');
+let isLiked = false;
 
-
-// ? Create a loop to generate a post
+// ? Creating a loop to generate a post
 for (let i = 0; i < posts.length; i++) {
     const visualPosts = posts[i];
-    console.log("Post id" +  `${visualPosts.id}`);
+    console.log("Post id " + `${visualPosts.id}`);
+
 
 
 
@@ -116,7 +118,7 @@ for (let i = 0; i < posts.length; i++) {
                 <div class="post__header">
                     <div class="post-meta">
                         <div class="post-meta__icon">
-                            <img class="profile-pic" src="${visualPosts.author['image']}" alt="${visualPosts.author.name}">
+                            <img class="profile-pic" src="${visualPosts.author['image']}" alt="${visualPosts.author['name']}">
                         </div>
                         <div class="post-meta__data">
                             <div class="post-meta__author">${visualPosts.author['name']}</div>
@@ -131,7 +133,7 @@ for (let i = 0; i < posts.length; i++) {
                 <div class="post__footer">
                     <div class="likes js-likes">
                         <div class="likes__cta">
-                            <a class="like-button  js-like-button" href="#" data-postid="${visualPosts.id}">
+                            <a class="like-button  js-like-button" href="/#" data-postid="${visualPosts.id}">
                                 <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                                 <span class="like-button__label">Mi Piace</span>
                             </a>
@@ -146,17 +148,39 @@ for (let i = 0; i < posts.length; i++) {
 }
 
 
-const isLiked = false;
-const likeButton = document.querySelectorAll('.js-like-button');
 
-likeButton.addEventListener('click',function () {
+const likeBtn = document.querySelectorAll('.like-button');
+let likesCounter = document.querySelectorAll('.js-likes-counter');
 
-    if (isLiked === true) {
-        likeButton.classList.add('like-button--liked');
-    } else {
-        likeButton.classList.remove('like-button--liked');
+for (let i = 0; i < likeBtn.length; i++) {
+    likeBtn[i].addEventListener('click', function () {
+
+
+        if (isLiked === false) {
+            likeBtn[i].classList.add('like-button--liked');
+            likesCounter[i].innerHTML = (Number(likesCounter[i].innerHTML) + 1);
+
+        } else
+
+            if (isLiked === true) {
+                likeBtn[i].classList.add('.removed-click');
+                likeBtn[i].classList.remove('like-button--liked');
+                likesCounter[i].innerHTML = (Number(likesCounter[i].innerHTML) - 1);
+            }
     }
-});
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
