@@ -108,6 +108,7 @@ let isLiked = false;
 for (let i = 0; i < posts.length; i++) {
     const visualPosts = posts[i];
     console.log("Post id " + `${visualPosts.id}`);
+    
 
 
 
@@ -140,7 +141,7 @@ for (let i = 0; i < posts.length; i++) {
                             </a>
                         </div>
                         <div class="likes__counter">
-                            Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                            Piace a <b id="like-counter-1" class="js-likes-counter">${visualPosts.likes}</b> persone
                         </div>
                     </div>
                 </div>
@@ -163,9 +164,10 @@ for (let i = 0; i < likesBtn.length; i++) {
         } else
 
             if (isLiked === true) {
-                
                 likesBtn[i].classList.remove('like-button--liked');
                 postLikes[i].innerHTML = (Number(postLikes[i].innerHTML) - 1);
+
+            
             }
     }
     );
