@@ -114,6 +114,12 @@ for (let i = 0; i < posts.length; i++) {
 
 
     //* Creating a new (div) element
+    let date = new Date();
+    let dateString = date.toLocaleDateString();
+    dateString = `${dateString}`;
+    
+
+
     const newPost = document.createElement('div');
     newPost.innerHTML =
         `<div class="post">
@@ -124,7 +130,7 @@ for (let i = 0; i < posts.length; i++) {
                         </div>
                         <div class="post-meta__data">
                             <div class="post-meta__author">${visualPosts.author['name']}</div>
-                            <div class="post-meta__time">${visualPosts.created}</div>
+                            <div class="post-meta__time">${dateString}</div>
                         </div>
                     </div>
                 </div>
