@@ -105,7 +105,7 @@ const outputHtml = document.getElementById('output-post');
 // ? Create a loop to generate a post
 for (let i = 0; i < posts.length; i++) {
     const visualPosts = posts[i];
-    console.log(`${visualPosts.id} `);
+    console.log(`${visualPosts.id}`);
 
 
 
@@ -143,8 +143,15 @@ for (let i = 0; i < posts.length; i++) {
                 </div>
             </div>`;
 
-    outputHtml.append(newPost);
+            // let autImg = `${visualPosts.author["image"]}`;
 
+            // if (autImg == null) {
+            //     autImg = document
+
+
+
+
+    outputHtml.append(newPost);
 }
 
 
