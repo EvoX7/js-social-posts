@@ -100,7 +100,10 @@ const posts = [
 
 // * Output HTML
 
-const outputHtml = document.getElementById('output-post');
+// ...
+
+// * Output HTML
+const outputHtml = document.getElementById('container'); // Cambiato da 'output-post' a 'container'
 
 let isLiked = false;
 
@@ -108,23 +111,19 @@ let isLiked = false;
 for (let i = 0; i < posts.length; i++) {
     const visualPosts = posts[i];
     console.log("Post id " + `${visualPosts.id}`);
-    
 
-
- // !Formatting date 
- let date = new Date();
- let dateString = date.toLocaleString("it-IT", {
+    // !Formatting date 
+    let date = new Date();
+    let dateString = date.toLocaleString("it-IT", {
         day: "numeric",
         month: "numeric",
         year: "numeric"
     });
     console.log(dateString);
 
- dateString = `${dateString}`;
- 
+    dateString = `${dateString}`;
 
     //* Creating a new (div) element
-    
     const newPost = document.createElement('div');
     newPost.innerHTML =
         `<div class="post">
@@ -157,32 +156,27 @@ for (let i = 0; i < posts.length; i++) {
                     </div>
                 </div>
             </div>`;
-    outputHtml.append(newPost);
+    outputHtml.appendChild(newPost);
 }
 
-//? Selecting like buttons 
 
+// ? Selecting like buttons 
 const likesBtn = document.querySelectorAll('.like-button');
 let postLikes = document.querySelectorAll('.js-likes-counter');
 
 for (let i = 0; i < likesBtn.length; i++) {
     likesBtn[i].addEventListener('click', function () {
+        // Aggiungiamo questa variabile per tenere traccia dello stato del "Mi Piace"
+        let hasLiked = likesBtn[i].classList.contains('like-button--liked');
 
-        if (isLiked === false) {
+        if (!hasLiked) {
             likesBtn[i].classList.add('like-button--liked');
             postLikes[i].innerHTML = (Number(postLikes[i].innerHTML) + 1);
-
-        } else
-
-            if (isLiked === true) {
-                likesBtn[i].classList.remove('like-button--liked');
-                postLikes[i].innerHTML = (Number(postLikes[i].innerHTML) - 1);
-
-            
-            }
-    }
-    );
+        }
+    });
 }
+
+
 
 
 
